@@ -14,6 +14,12 @@ class CourseController extends Controller
         $data['cat']=Cat::findOrFail($id);
         $data['courses']=Course::where('cat_id',$id)->with(['cat','trainer'])->paginate(3);
 
-        return view('courses.cat')->with($data);
+        return view('front.courses.cat')->with($data);
     }
+
+    public function show($id,$c_id){
+$data['course']=Course::where('id',$c_id)->with(['cat','trainer'])->get();
+
+return view('front.courses.show')->with($data);
+}
 }
