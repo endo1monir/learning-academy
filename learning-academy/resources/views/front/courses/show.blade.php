@@ -60,7 +60,39 @@
                         </li>
 
                     </ul>
-                    <a href="#" class="btn_1 d-block">Enroll the course</a>
+                    @include('front.inc.errors')
+                    <form class="form-contact contact_form" action="{{ route('front.message.enroll') }}" method="post" id="contactForm"
+                        >
+                        @csrf
+                        <div class="row">
+                            <input type="hidden" name="course_id" value="{{$course[0]->id}}">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" id="name" type="text"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+                                        placeholder='Enter your name'>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="email" id="email" type="email"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
+                                        placeholder='Enter email address'>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="speciality" id="speciality" type="text"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
+                                        placeholder='Enter Speciality'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3 text-center">
+                            <button type="submit" class="btn_1 d-block">Enroll the course</button>
+                        </div>
+                    </form>
+
                 </div>
 
 

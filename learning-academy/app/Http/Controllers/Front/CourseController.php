@@ -19,7 +19,7 @@ class CourseController extends Controller
 
     public function show($id,$c_id){
 $data['course']=Course::where('id',$c_id)->with(['cat','trainer'])->get();
-
+// ddd($data['course'][0]->id);
 return view('front.courses.show')->with($data);
 }
 }

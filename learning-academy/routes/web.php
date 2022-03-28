@@ -13,8 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','Front\HomepageController@index')->name('front.homepage');
-Route::get('/cat/{id}','Front\CourseController@cat')->name('cat');
-Route::get('/cat/{id}/course/{c_id}','Front\CourseController@show')->name('front.show');
-Route::get('/contact','Front\ContactController@index')->name('front.contact');
+
+Route::namespace('Front')->group(function(){
+    Route::get('/','HomepageController@index')->name('front.homepage');
+    Route::get('/cat/{id}','CourseController@cat')->name('cat');
+    Route::get('/cat/{id}/course/{c_id}','CourseController@show')->name('front.show');
+    Route::get('/contact','ContactController@index')->name('front.contact');
+    Route::post('/message/newsletter','MessageController@newsletter')->name('front.message.newsletter');
+    Route::post('/message/contact','MessageController@contact')->name('front.message.contact');
+    Route::post('/message/enroll','MessageController@enroll')->name('front.message.enroll');
+
+
+});
+
 
