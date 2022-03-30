@@ -26,4 +26,7 @@ Route::namespace('Front')->group(function(){
 
 });
 
-
+Route::namespace('Admin')->group(function (){
+    Route::get('/dashboard','HomeController@index')->name('admin.home');
+    Route::get('/dashboard/login','AuthController@login')->name('admin.login');
+});
