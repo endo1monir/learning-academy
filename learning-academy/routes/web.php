@@ -26,7 +26,14 @@ Route::namespace('Front')->group(function(){
 
 });
 
-Route::namespace('Admin')->group(function (){
-    Route::get('/dashboard','HomeController@index')->name('admin.home');
-    Route::get('/dashboard/login','AuthController@login')->name('admin.login');
+Route::namespace('Admin')->prefix('dashboard')->group(function (){
+
+    Route::get('/login','AuthController@login')->name('admin.login');
+
+    Route::post('/dologin','AuthController@doLogin')->name('admin.doLogin');
+    Route::middleware('adminAuth:admin')->group(function(){
+        Route::get('','HomeController@index')->name('admin.home');
+        Route::get('/logout','AuthController@logout')->name('admin.logout');
+    });
+
 });
