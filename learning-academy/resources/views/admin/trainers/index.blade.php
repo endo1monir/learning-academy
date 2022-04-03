@@ -29,8 +29,8 @@
          </td>
          <td>{{ $trainer->spec }} </td>
         <td>
-            <a href="{{ route('admin.cat.edit', ['id'=>$trainer->id]) }}" class="btn btn-sm btn-info">Edit</a>
-            <a class="btn btn-sm btn-danger" href="{{ route('admin.cat.delete', ['id'=>$trainer->id]) }}">Delete</a>
+            <a href="{{ route('admin.trainer.edit', ['id'=>$trainer->id]) }}" class="btn btn-sm btn-info">Edit</a>
+            <a class="btn btn-sm btn-danger" href="{{ route('admin.trainer.delete', ['id'=>$trainer->id]) }}">Delete</a>
         </td>
 
       </tr>
