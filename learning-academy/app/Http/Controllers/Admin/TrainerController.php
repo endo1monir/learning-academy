@@ -77,7 +77,7 @@ if($request->hasFile('img')){
         }
         public function delete($id){
             $img=Trainer::findOrFail($id)->img;
-            Storage::disk('uploads')->delete('trainers/'.$img   );
+            Storage::disk('uploads')->delete('trainers/'.$img);
             Trainer::findOrFail($id)->delete();
         return back();
         }

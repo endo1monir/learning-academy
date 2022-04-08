@@ -48,6 +48,13 @@ Route::namespace('Admin')->prefix('dashboard')->group(function (){
         Route::get('/trainer/edit/{id}','TrainerController@edit')->name('admin.trainer.edit');
         Route::post('/trainer/update/{id}','TrainerController@update')->name('admin.trainer.update');
         Route::get('/trainer/delete/{id}','TrainerController@delete')->name('admin.trainer.delete');
+        //cources
+        Route::get('/cources','CourcesController@index')->name('admin.cources.index');
+        Route::get('/cources/create','CourcesController@create')->name('admin.cources.create');
+        Route::post('/cources/store','CourcesController@store')->name('admin.cources.store');
+        Route::get('/cources/edit/{id}','CourcesController@edit')->name('admin.cources.edit');
+        Route::post('/cources/update/{id}','CourcesController@update')->name('admin.cources.update');
+        Route::get('/cources/delete/{id}','CourcesController@delete')->name('admin.cources.delete');
 
 
     });

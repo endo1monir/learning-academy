@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('admin.trainer.index') }}">Trainers</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('admin.cources.index') }}">Cources</a>
+                    </li>
 
                 </ul>
                 @auth('admin')
