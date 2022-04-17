@@ -56,8 +56,19 @@ Route::namespace('Admin')->prefix('dashboard')->group(function (){
         Route::post('/cources/update/{id}','CourcesController@update')->name('admin.cources.update');
         Route::get('/cources/delete/{id}','CourcesController@delete')->name('admin.cources.delete');
 
-
-    });
+         //Students
+         Route::get('/students','StudentsController@index')->name('admin.students.index');
+         Route::get('/students/create','StudentsController@create')->name('admin.students.create');
+         Route::post('/students/store','StudentsController@store')->name('admin.students.store');
+         Route::get('/students/edit/{id}','StudentsController@edit')->name('admin.students.edit');
+         Route::post('/students/update/{id}','StudentsController@update')->name('admin.students.update');
+         Route::get('/students/delete/{id}','StudentsController@delete')->name('admin.students.delete');
+Route::get('/students/showcources/{id}','StudentsController@show')->name('admin.students.showCources');
+Route::get('/students/{s_id}/cources/{c_id}/approve','StudentsController@approve')->name('admin.students.approve');
+Route::get('/students/{s_id}/cources/{c_id}/delete','StudentsController@reject')->name('admin.students.reject');
+Route::get('/students/{id}/assign-to-course/','StudentsController@addToCource')->name('admin.students.addToCource');
+Route::post('/students/{id}/assign','StudentsController@assign')->name('admin.students.assign');
+});
 
 
 });

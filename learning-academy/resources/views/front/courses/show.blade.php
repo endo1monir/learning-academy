@@ -83,7 +83,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <input class="form-control" name="speciality" id="speciality" type="text"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Seciality'"
                                         placeholder='Enter Speciality'>
                                 </div>
                             </div>

@@ -38,14 +38,30 @@ $data=$request->validate([
     'speciality'=>'required|string',
     'course_id'=>'required|exists:courses,id'
 ]);
-$student=Student::create([
-    'name'=>$data['name'],
-    'email'=>$data['email'],
-    'spec'=>$data['speciality']
-]);
+$old_student=Student::select('id')->where('email',$data['email'])->first();
+$student_id='';
+if($old_student===null){
+
+    $student=Student::create([
+        'name'=>$data['name'],
+        'email'=>$data['email'],
+        'spec'=>$data['speciality']
+    ]);
+$student_id=$student->id;
+}
+else{
+    if($data['name']!==null){
+$old_student->update(['name'=>$data['name']]);
+    }
+    if($data['speciality']!==null){
+        $old_student->update(['spec'=>$data['speciality']]);
+            }
+   $student_id=$old_student->id;
+}
+
 DB::table('course_student')->insert([
 'course_id'=>$data['course_id'],
-'student_id'=>$student->id,
+'student_id'=>$student_id,
 'created_at'=>now(),
 'updated_at'=>now()
 ]);

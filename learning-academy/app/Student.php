@@ -9,6 +9,6 @@ class Student extends Model
     //
     protected $guarded=['id'];
     public function courses(){
-        return $this->belongsToMany(Course::class);
+        return $this->belongsToMany(Course::class)->withPivot('status');
     }
 }

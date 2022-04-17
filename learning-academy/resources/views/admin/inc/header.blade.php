@@ -33,6 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('admin.cources.index') }}">Cources</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('admin.students.index') }}">students</a>
+                    </li>
 
                 </ul>
                 @auth('admin')
